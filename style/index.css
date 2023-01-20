@@ -9,6 +9,15 @@ body{
     text-align: center;
 }
 
+.title {
+    margin-bottom: 3%;
+}
+
+.image_logo{
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+
 .echo_sucess {
     color: green;
     top: 100%;
@@ -17,14 +26,44 @@ body{
 }
 
 .button{
-    border-radius: 50px;
+    border-radius: 10px;
     /* margin-left: 50%; */
-    margin-top: 1.4%;
+    margin-top: 0.7%;
+    margin-bottom: 3%;
+    border-color: #4A65B8;
+    color: #1a3790;
+    background-color: white;
 }
 
-.file{
-    margin-left: 13.2%; 
-    color: white;
+.button:hover {
+    background-color: #4A65B8; /* Change la couleur de fond lorsque la souris est sur le bouton */
 }
+
+
+
+.file{
+    margin-left: 9.2%; 
+    color: white;
+    margin-top: 0.4%;
+}
+
+.barre{
+    border: 2px solid #4A65B8;
+    width: 60%;
+    margin: auto;
+}
+
+.echo_connecter{
+    color: black;
+    position: relative;
+    top: 49.5%;
+}
+
+.echo_connecter_false{
+    color: red;
+    position: relative;
+    top: 49.5%;
+}
+
 
 input#file-upload-button{border-radius: 50px!important}

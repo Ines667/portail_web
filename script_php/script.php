@@ -8,7 +8,6 @@ $con = ftp_connect('80.11.12.120', 21);
 $login = ftp_login($con, 'RhFacil', 'Facil2023');
 
 
-$collabname = $_POST['collab_name'];
 
 
 
@@ -17,23 +16,63 @@ $collabname = $_POST['collab_name'];
         //bouton créer
         if (isset($_POST["create_directory"])){
 
+                $collabname = $_POST['collab_name'];
+                
+
         
-            $_SESSION['NomPrenom']=$_POST['collab_name'];
-            $dir = "collab/" .$_SESSION['NomPrenom'];
-            $dir2 = $dir . "/document";
-            ftp_mkdir($con, $dir);
-            ftp_mkdir($con, $dir2);            
+                $_SESSION['NomPrenom']=$_POST['collab_name'];
+                $dir = "collab/" .$_SESSION['NomPrenom'];
+                $dir2 = $dir . "/document";
+                // if (ftp_mkdir($con, $dir)){
+                //         echo "<p class='echo_connecter'>Bienvenue ".$collabname."</p>";
+                //         ftp_mkdir($con, $dir2);
+                // } else{
+                //         echo "Le dossier existe deja";
+                // };  
+                
+                $files = ftp_nlist($con, "collab");
+                if(in_array("collab/".$collabname, $files)) {
+                echo "<p class='echo_connecter_false'>Le dossier existe deja</p>";
+                } else {
+                echo "<p class='echo_connecter'>Bienvenue ".$collabname."</p>";
+                ftp_mkdir($con, $dir);
+                ftp_mkdir($con, $dir2);
+                };
+
         }
 
         $dir = "collab/" .$_SESSION['NomPrenom'];
         $dir2 = $dir . "/document";
+
+
+        //bouton connect
+        if (isset($_POST["connect_directory"])){
+
+
+                $collabname = $_POST['collab_name'];
+                
+
+        
+                $_SESSION['NomPrenom']=$_POST['collab_name'];
+                $dir = "collab/" .$_SESSION['NomPrenom'];
+                $dir2 = $dir . "/document";
+
+
+                $files = ftp_nlist($con, "collab");
+                if(in_array("collab/".$collabname, $files)) {
+                echo "<p class='echo_connecter'>Vous etes bien connecter à ".$collabname."</p>";
+                } else {
+                echo "<p class='echo_connecter_false'>Le dossier n'existe pas.</p>";
+                };
+
+
+        }
         
 
 
         //CV
         if (isset($_POST["submit_cv"]))
         {
-            echo "ok";
 
                 $fileName = $_FILES['upload_file_cv']['name'];
                 $fileExt = "." . strtolower(substr(strrchr($fileName, "."), 1));
@@ -102,41 +141,3 @@ $collabname = $_POST['collab_name'];
         //         ftp_close($con);
         // }
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
