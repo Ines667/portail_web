@@ -42,14 +42,14 @@ body{
 
 
 .file{
-    margin-left: 9.2%; 
-    color: white;
-    margin-top: 0.4%;
+    /* margin-left: 9.2%;  */
+    /* color: white; */
+    margin-top: 1.9%;
 }
 
 .barre{
     border: 2px solid #4A65B8;
-    width: 60%;
+    width: 65%;
     margin: auto;
 }
 
@@ -65,5 +65,13 @@ body{
     top: 49.5%;
 }
 
+.obligatoire{
+    color: red;
+    
+}
 
-input#file-upload-button{border-radius: 50px!important}
+
+input#file-upload-button{
+    border-radius: 20px!important;
+}
+
