@@ -7,6 +7,7 @@ body{
     padding: 0;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+    background-color: #eeeeeee0;
 }
 
 .title {
@@ -15,7 +16,7 @@ body{
 
 .image_logo{
     margin-bottom: 3%;
-    margin-top: 3%;
+    margin-top: 5%;
 }
 
 .echo_sucess {
@@ -80,75 +81,113 @@ input#file-upload-button{
 }
 
 /* INDEX */
-.bouton_index{
-    padding: 10px 20px;
-    font-size: 16px;
-    transition: transform 0.3s;
-    margin-bottom: 7.5%;
-    margin-top: 3%;
-    border-radius: 3%;
-}
+                    .bouton_index{
+                        padding: 10px 20px;
+                        font-size: 16px;
+                        transition: transform 0.3s;
+                        margin-bottom: 7.5%;
+                        margin-top: 3%;
+                        border-radius: 3%;
+                    }
 
-.bouton_index2{
-    padding: 10px 20px;
-    font-size: 16px;
-    transition: transform 0.3s;
-    margin-bottom: 7.5%;
-    margin-top: 9%;
-    border-radius: 3%;
-}
+                    .bouton_index2{
+                        padding: 10px 20px;
+                        font-size: 16px;
+                        transition: transform 0.3s;
+                        margin-bottom: 7.5%;
+                        margin-top: 9%;
+                        border-radius: 3%;
+                    }
 
-.bouton_index:hover{
-    transform: scale(1.1);
-}
+                    .bouton_index:hover{
+                        transform: scale(1.1);
+                    }
 
-.bouton_index2:hover{
-    transform: scale(1.1);
-}
+                    .bouton_index2:hover{
+                        transform: scale(1.1);
+                    }
 
-.rectanglebox {
-    width: 300px; /* Largeur de la div */
-    height: auto; /* Hauteur de la div */
-    background-color: rgb(56, 56, 56); /* Couleur de fond grise */
-    position: absolute; /* Position absolue pour centrer la div */
-    top: 48%; /* Position verticale centrée */
-    left: 50%; /* Position horizontale centrée */
-    transform: translate(-50%, -50%); /* Centrage de la div */
-    border-radius: 3%;
-  }
+                    .rectanglebox {
+                        width: 300px; /* Largeur de la div */
+                        height: auto; /* Hauteur de la div */
+                        background-color: rgb(56, 56, 56); /* Couleur de fond grise */
+                        position: absolute; /* Position absolue pour centrer la div */
+                        top: 48%; /* Position verticale centrée */
+                        left: 50%; /* Position horizontale centrée */
+                        transform: translate(-50%, -50%); /* Centrage de la div */
+                        border-radius: 3%;
+                    }
 
-  .text_index {
-    margin-top: 3%;
-    color: #fcfcfc;
-  }
-  
-  .button_index{
-    border-radius: 10px;
-    /* margin-left: 50%; */
-    margin-top: 1.2%;
-    margin-bottom: 9%;
-    border-color: #4A65B8;
-    color: #1a3790;
-    background-color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    transition: transform 0.3s;
-}
+                    .text_index {
+                        margin-top: 3%;
+                        color: #fcfcfc;
+                    }
+                    
+                    .button_index{
+                        border-radius: 10px;
+                        /* margin-left: 50%; */
+                        margin-top: 1.2%;
+                        margin-bottom: 9%;
+                        border-color: #4A65B8;
+                        color: #1a3790;
+                        background-color: white;
+                        padding: 10px 20px;
+                        font-size: 16px;
+                        transition: transform 0.3s;
+                    }
 
-.button_index:hover {
-    background-color: #4A65B8; /* Change la couleur de fond lorsque la souris est sur le bouton */
-    transform: scale(1.1);
-    color: #fdfdfd;
-}
+                    .button_index:hover {
+                        background-color: #4A65B8; /* Change la couleur de fond lorsque la souris est sur le bouton */
+                        transform: scale(1.1);
+                        color: #fdfdfd;
+                    }
 
-.mdpfaux {
-    color: rgb(208, 68, 68);
+                    .mdpfaux {
+                        color: rgb(208, 68, 68);
+                        position: fixed;
+                        top: 80%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background-color: #eee;
+                        padding: 20px;
+                        border-radius: 10px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                    }
+
+/* Barre navigtion */
+
+header {
+    background-color: #333;
+    height: 50px;
     position: fixed;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #eee;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+  }
+
+  li {
+    margin: 0 10px;
+    text-align: center;
+  }
+
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .imgnav {
+    height: 30px;
+    width: 30px;
+    display: block;
+  }

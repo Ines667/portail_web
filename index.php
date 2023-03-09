@@ -16,27 +16,35 @@ include "script_php/login.php";
     </head>
 
 
-
     <body>
 
 
         <header>
 
             <nav>
-                <img class="image_logo" src="logo2.webp">
+                <ul>
+                    <li><a href="#"><img src="style/linkedin.png" class="imgnav"alt="LinkedIn"></a></li>
+                    <li><a href="#"><img src="style/facebook.png" class="imgnav"alt="Facebook"></a></li>
+                    <li><a href="#"><img src="style/siteinternet.png" class="imgnav"alt="Autre"></a></li>
+                </ul>
+            </nav>
+
+
+            <nav>
+                <!-- <img class="image_logo" src="logo2.webp"> -->
 
                 <div
                     class="onglet">
                 </div>
             </nav>
 
-            <!-- <h4>Envoyer vos fichiers simplement et rapidement</h4>
-            <button>Se connecter</button>    -->
-
 
         </header>
 
         <main>
+            <img class="image_logo" src="logo2.webp">
+
+
             <div class="rectanglebox">
                 <form method="post">
                 <input class="bouton_index2"type="email" id="email" name="email" placeholder="Entrez votre adresse e-mail" required ><br>
