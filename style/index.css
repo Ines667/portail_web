@@ -79,9 +79,6 @@ input#file-upload-button{
     border-radius: 20px!important;
 }
 
-.text_index{
-
-}
 
 .bouton_index{
     padding: 10px 20px;
@@ -93,3 +90,20 @@ input#file-upload-button{
 .bouton_index:hover{
     transform: scale(1.1);
 }
+
+.rectanglebox {
+    width: 300px; /* Largeur de la div */
+    height: auto; /* Hauteur de la div */
+    background-color: rgb(56, 56, 56); /* Couleur de fond grise */
+    position: absolute; /* Position absolue pour centrer la div */
+    top: 48%; /* Position verticale centrée */
+    left: 50%; /* Position horizontale centrée */
+    transform: translate(-50%, -50%); /* Centrage de la div */
+    border-radius: 3%;
+  }
+
+  .text_index {
+    margin-top: 3%;
+    color: #fcfcfc;
+  }
+  
