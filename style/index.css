@@ -9,6 +9,15 @@ body{
     text-align: center;
 }
 
+.title {
+    margin-bottom: 3%;
+}
+
+.image_logo{
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+
 .echo_sucess {
     color: green;
     top: 100%;
@@ -17,14 +26,70 @@ body{
 }
 
 .button{
-    border-radius: 50px;
+    border-radius: 10px;
     /* margin-left: 50%; */
-    margin-top: 1.4%;
+    margin-top: 1.2%;
+    margin-bottom: 3%;
+    border-color: #4A65B8;
+    color: #1a3790;
+    background-color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: transform 0.3s;
 }
+
+.button:hover {
+    background-color: #4A65B8; /* Change la couleur de fond lorsque la souris est sur le bouton */
+    transform: scale(1.1);
+    color: #fdfdfd;
+}
+
+
 
 .file{
-    margin-left: 13.2%; 
-    color: white;
+    /* margin-left: 9.2%;  */
+    /* color: white; */
+    margin-top: 1.9%;
 }
 
-input#file-upload-button{border-radius: 50px!important}
+.barre{
+    border: 2px solid #4A65B8;
+    width: 65%;
+    margin: auto;
+}
+
+.echo_connecter{
+    color: black;
+    position: relative;
+    top: 49.5%;
+}
+
+.echo_connecter_false{
+    color: red;
+    position: relative;
+    top: 49.5%;
+}
+
+.obligatoire{
+    color: red;
+}
+
+
+input#file-upload-button{
+    border-radius: 20px!important;
+}
+
+.text_index{
+
+}
+
+.bouton_index{
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: transform 0.3s;
+    margin-bottom: 1.5%;
+}
+
+.bouton_index:hover{
+    transform: scale(1.1);
+}
