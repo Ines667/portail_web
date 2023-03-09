@@ -39,20 +39,18 @@ include "script_php/login.php";
         <main>
             <div class="rectanglebox">
                 <form method="post">
-                <label class="text_index"for="email">Adresse email :</label><br>
-                <input class="bouton_index"type="email" id="email" name="email" required><br>
+                <input class="bouton_index2"type="email" id="email" name="email" placeholder="Entrez votre adresse e-mail" required ><br>
 
-                <label class="text_index"for="password">Mot de passe :</label> <br>
-                <input class="bouton_index"type="password" id="password" name="password" required> <br>
+                <input class="bouton_index"type="password" id="password" name="password" placeholder="Entrez votre mot de passe"required > <br>
 
                 <!-- <input class="button"name="login"type="button" value="Se connecter">
                 <input class="button"name="create_directory"type="button" value="Création"> -->
 
-                <button class = "button"name="login">Se connecter</button> <br/>
+                <button class = "button_index"name="login">Se connecter</button> <br/>
                 <!-- <button class="button">Me créer un compte</button> <br/> -->
                 </form>
                 <form action="create.php" method="post">
-                <button class = "button"name="creation"id="creation">Me créer un compte</button> <br/>
+                <button class = "button_index"name="creation"id="creation">Me créer un compte</button> <br/>
                 </form>
             </div>
         </main>

@@ -25,7 +25,7 @@
         
     } else {
         // login failed
-        echo "Adresse Mail ou Mot de passe incorect";
+        echo "<p class='mdpfaux'>Adresse Mail ou Mot de passe incorect</p>";
 
     }
 
