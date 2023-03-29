@@ -22,7 +22,7 @@ include "script_php/createlogin.php";
         <header>
 
             <nav>
-                <img class="image_logo" src="logo2.webp">
+                <!-- <img class="image_logo" src="logo2.webp"> -->
 
                 <div
                     class="onglet">
@@ -34,25 +34,25 @@ include "script_php/createlogin.php";
 
 
         </header>
-
+        <img class="image_logo" src="logo2.webp">
         <main>
         <form method="post">
 
         <label for="username">Votre identifiant :</label><br>
-        <input class="bouton_index"type="username" id="username" name="username" required><br>
+        <input class="bouton_main"type="username" id="username" name="username" required><br>
 
         <label for="email">Adresse email :</label><br>
-        <input class="bouton_index"type="email" id="email" name="email" required><br>
+        <input class="bouton_main"type="email" id="email" name="email" required><br>
 
         <label for="password">Mot de passe :</label><br>
-        <input class="bouton_index"type="password" id="password" name="password" required><br>
+        <input class="bouton_main"type="password" id="password" name="password" required><br>
 
 
         <label for="text">Prénom</label><br>
-        <input class="bouton_index"type="text" id="firstname" name="firstname" required><br>
+        <input class="bouton_main"type="text" id="firstname" name="firstname" required><br>
 
         <label for="text">Nom</label><br>
-        <input class="bouton_index"type="text" id="lastname" name="lastname" required><br>
+        <input class="bouton_main"type="text" id="lastname" name="lastname" required><br>
 
         <!-- <input class="button"name="login"type="button" value="Se connecter">
         <input class="button"name="create_directory"type="button" value="Création"> -->

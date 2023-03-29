@@ -22,20 +22,13 @@ include "script_php/login.php";
         <header>
 
             <nav>
-                <ul>
-                    <li><a href="#"><img src="style/linkedin.png" class="imgnav"alt="LinkedIn"></a></li>
-                    <li><a href="#"><img src="style/facebook.png" class="imgnav"alt="Facebook"></a></li>
-                    <li><a href="#"><img src="style/siteinternet.png" class="imgnav"alt="Autre"></a></li>
-                </ul>
-            </nav>
-
-
-            <nav>
-                <!-- <img class="image_logo" src="logo2.webp"> -->
-
-                <div
-                    class="onglet">
-                </div>
+            <ul>
+                <li><a class="active" href="http://test-facil.fr/index.php">Home</a></li>
+                <li><a href="http://test-facil.fr/contact.php">Contact</a></li>
+                <li><a href="http://test-facil.fr/create.php">Création de compte</a></li>
+                <li><a href="http://test-facil.fr/create.php">Réseaux</a></li>
+                <li type="button"onclick="button_logout()"><a>Log out </a></li>
+            </ul>
             </nav>
 
 

@@ -1,13 +1,4 @@
 <?php
-
-    // Connexion � la base de donn�es
-    // $host = "db5011701111.hosting-data.io";
-    // $username = "dbu5537428";
-    // $password = "Mathiscamille2021";
-    // $dbname = "dbs9859875";
-    
-
-
     $conn = mysqli_connect("db5011701111.hosting-data.io", "dbu5537428", "Mathiscamille2021", "dbs9859875");
 
     if (isset($_POST["login"])){
@@ -22,6 +13,7 @@
         session_start();
         $_SESSION['NomPrenom'] = $tableau['lastname'].$tableau['firstname'];
         header("Location: ../main.php");
+
         
     } else {
         // login failed
