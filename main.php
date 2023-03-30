@@ -22,12 +22,13 @@ include "script_php/script.php";
 
         <header>
 
-            <nav>
-                <img class="image_logo" src="logo2.webp">
-
-                <div
-                    class="onglet">
-                </div>
+        <nav>
+            <ul>
+                <li><a class="active" href="http://test-facil.fr/index.php">Home</a></li>
+                <li><a href="http://test-facil.fr/contact.php">Contact</a></li>
+                <li><a href="http://test-facil.fr/reseaux.php">Réseaux</a></li>
+                <li><a href="http://test-facil.fr/index.php">Log out </a></li>
+            </ul>
             </nav>
 
             <!-- <h4>Envoyer vos fichiers simplement et rapidement</h4>
@@ -41,6 +42,8 @@ include "script_php/script.php";
 
                         <div class="barre">
                         </div>
+                        <img class="image_logo" src="logo2.webp">
+
 
 
 

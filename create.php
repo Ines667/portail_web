@@ -21,12 +21,14 @@ include "script_php/createlogin.php";
 
         <header>
 
-            <nav>
-                <!-- <img class="image_logo" src="logo2.webp"> -->
-
-                <div
-                    class="onglet">
-                </div>
+        <nav>
+            <ul>
+                <li><a href="http://test-facil.fr/index.php">Home</a></li>
+                <li><a href="http://test-facil.fr/contact.php">Contact</a></li>
+                <li><a class="active"href="http://test-facil.fr/create.php">Création de compte</a></li>
+                <li><a href="http://test-facil.fr/reseaux.php">Réseaux</a></li>
+                <li><a href="http://test-facil.fr/index.php">Log out </a></li>
+            </ul>
             </nav>
 
             <!-- <h4>Envoyer vos fichiers simplement et rapidement</h4>
@@ -59,7 +61,7 @@ include "script_php/createlogin.php";
 
         <button class = "button"name="createlogin">Créer son compte</button>
         </form>
-
+    
         <form action="index.php">
             <input class="button"type="submit" value="Se connecter">
         </form>

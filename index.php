@@ -26,8 +26,8 @@ include "script_php/login.php";
                 <li><a class="active" href="http://test-facil.fr/index.php">Home</a></li>
                 <li><a href="http://test-facil.fr/contact.php">Contact</a></li>
                 <li><a href="http://test-facil.fr/create.php">Création de compte</a></li>
-                <li><a href="http://test-facil.fr/create.php">Réseaux</a></li>
-                <li type="button"onclick="button_logout()"><a>Log out </a></li>
+                <li><a href="http://test-facil.fr/reseaux.php">Réseaux</a></li>
+                <li><a href="http://test-facil.fr/index.php">Log out </a></li>
             </ul>
             </nav>
 
