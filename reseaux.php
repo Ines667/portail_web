@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style/index.css">
-        <title>Register WebPortail Facil</title>
+        <title>Réseaux Facil</title>
         <link rel="icon" href="favicon.webp" sizes="196x196">
 
     </head>
@@ -24,8 +24,13 @@
 
 
 </header>
-    
+    <h1 class="h1_reseaux">Réseaux sociaux</h1>
+	<p >Retrouvez-nous sur les réseaux sociaux :</p>
 
-    <h1 class="h1_contact">Page en maintenance</h1>
+    <div class="container_reseaux">
+	<a href="https://fr.linkedin.com/company/facil-ingenierie"><img class="img_reseaux"src="style/linkedin.png" alt="LinkedIn"></a>
+	<a href="https://ne-np.facebook.com/people/FACIL-Ing%C3%A9nierie/100067825801579/"><img class="img_reseaux"src="style/facebook.png" alt="Facebook"></a>
+	<a href="https://facil-ingenierie.com/"><img class="img_reseaux"src="style/siteinternet.png" alt="Example"></a>
+    </div>
 </body>
 </html>

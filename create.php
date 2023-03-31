@@ -38,7 +38,8 @@ include "script_php/createlogin.php";
         </header>
         <img class="image_logo" src="logo2.webp">
         <main>
-        <form method="post">
+        <div class="rectanglebox_create">
+        <form method="post" class="label_create">
 
         <label for="username">Votre identifiant :</label><br>
         <input class="bouton_main"type="username" id="username" name="username" required><br>
@@ -59,13 +60,13 @@ include "script_php/createlogin.php";
         <!-- <input class="button"name="login"type="button" value="Se connecter">
         <input class="button"name="create_directory"type="button" value="Création"> -->
 
-        <button class = "button"name="createlogin">Créer son compte</button>
+        <button class = "button_create"name="createlogin">Créer son compte</button>
         </form>
     
         <form action="index.php">
-            <input class="button"type="submit" value="Se connecter">
+            <input class="button_create"type="submit" value="Se connecter">
         </form>
-
+        </div>
         </main>
     </body>
 </html>

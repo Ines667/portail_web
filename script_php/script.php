@@ -22,18 +22,18 @@ $dir2 = $dir . "/document";
 
 
         //CV
-        if (isset($_POST["submit_cv"])){
-                $fileName = $_FILES['upload_file_cv']['name'];
-                $fileExt = "." . strtolower(substr(strrchr($fileName, "."), 1));
-                $tmpname = $_FILES['upload_file_cv']['tmp_name'];
-                $uniqueName = md5(uniqid(rand(), true));
-                $fileName = "./upload/" . $uniqueName . $fileExt;
+        // if (isset($_POST["submit_cv"])){
+        //         $fileName = $_FILES['upload_file_cv']['name'];
+        //         $fileExt = "." . strtolower(substr(strrchr($fileName, "."), 1));
+        //         $tmpname = $_FILES['upload_file_cv']['tmp_name'];
+        //         $uniqueName = md5(uniqid(rand(), true));
+        //         $fileName = "./upload/" . $uniqueName . $fileExt;
 
-                // Uploader le fichier
-                if ($file = ftp_put($con, $dir2 . "/CV_" . $_SESSION['NomPrenom'] . $fileExt, $tmpname, FTP_BINARY, 0)){
-                echo "<p class='echo_sucess'>Transfert réussi du CV.</p>";}
-                else{echo "Erreur";}
-        }
+        //         // Uploader le fichier
+        //         if ($file = ftp_put($con, $dir2 . "/CV_" . $_SESSION['NomPrenom'] . $fileExt, $tmpname, FTP_BINARY, 0)){
+        //         echo "<p class='echo_sucess'>Transfert réussi du CV.</p>";}
+        //         else{echo "Erreur";}
+        // }
 
         // IDcard
         if (isset($_POST["submit_cni"]))

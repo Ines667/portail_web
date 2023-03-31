@@ -10,7 +10,7 @@ include "script_php/login.php";
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style/index.css">
         <script src="script_php/script.js"></script>
-        <title>Register WebPortail Facil</title>
+        <title>Connection WebPortail Facil</title>
         <link rel="icon" href="logo.png" sizes="196x196">
 
     </head>
@@ -42,13 +42,9 @@ include "script_php/login.php";
                 <form method="post">
                 <input class="bouton_index2"type="email" id="email" name="email" placeholder="Entrez votre adresse e-mail" required ><br>
 
-                <input class="bouton_index"type="password" id="password" name="password" placeholder="Entrez votre mot de passe"required > <br>
-
-                <!-- <input class="button"name="login"type="button" value="Se connecter">
-                <input class="button"name="create_directory"type="button" value="Création"> -->
+                <input class="bouton_index2"type="password" id="password" name="password" placeholder="Entrez votre mot de passe"required > <br>
 
                 <button class = "button_index"name="login">Se connecter</button> <br/>
-                <!-- <button class="button">Me créer un compte</button> <br/> -->
                 </form>
                 <form action="create.php" method="post">
                 <button class = "button_index"name="creation"id="creation">Me créer un compte</button> <br/>
