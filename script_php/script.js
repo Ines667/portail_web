@@ -13,7 +13,6 @@ function encodeBase64(){
     
         reader_cni.onload = function() {
             var base64_cni = reader_cni.result;
-            console.log("base64 suivant")
             console.log(base64_cni);
         };
         reader_cni.readAsDataURL(fichier_cni);
@@ -23,7 +22,6 @@ function encodeBase64(){
     
         reader_passport.onload = function() {
             var base64_passport = reader_passport.result;
-            console.log("base64 suivant")
             console.log(base64_passport);
         };
         reader_passport.readAsDataURL(fichier_passport);
@@ -33,7 +31,6 @@ function encodeBase64(){
     
         reader_titre_de_sejour.onload = function() {
             var base64_titre_de_sejour = reader_titre_de_sejour.result;
-            console.log("base64 suivant")
             console.log(base64_titre_de_sejour);
         };
         reader_titre_de_sejour.readAsDataURL(fichier_titre_de_sejour);
@@ -103,10 +100,4 @@ function encodeBase64(){
         reader_fichier_justif_domi.readAsDataURL(fichier_justif_domi);
 
 
-
     }  
-
-            // Récupération du nom et du prénom depuis le sessionStorage
-            var nomPrenom = sessionStorage.getItem('nomPrenom');
-            console.log(nomPrenom)
-            console.log("salut")

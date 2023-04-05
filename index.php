@@ -1,6 +1,4 @@
-<?php
-include "script_php/login.php";
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,17 +37,18 @@ include "script_php/login.php";
 
 
             <div class="rectanglebox">
-                <form method="post">
+                <form id="login-form">
                 <input class="bouton_index2"type="email" id="email" name="email" placeholder="Entrez votre adresse e-mail" required ><br>
 
                 <input class="bouton_index2"type="password" id="password" name="password" placeholder="Entrez votre mot de passe"required > <br>
 
-                <button class = "button_index"name="login">Se connecter</button> <br/>
+                <button type="submit"class = "button_index"name="login">Se connecter</button> <br/>
                 </form>
                 <form action="create.php" method="post">
                 <button class = "button_index"name="creation"id="creation">Me créer un compte</button> <br/>
                 </form>
             </div>
         </main>
+        <script src="script_php/login.js"></script>
     </body>
 </html>
