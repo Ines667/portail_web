@@ -101,7 +101,12 @@ function encodeBase64(){
             console.log(base64_justif_domi);
         };
         reader_fichier_justif_domi.readAsDataURL(fichier_justif_domi);
-    
+
 
 
     }  
+
+            // Récupération du nom et du prénom depuis le sessionStorage
+            var nomPrenom = sessionStorage.getItem('nomPrenom');
+            console.log(nomPrenom)
+            console.log("salut")
