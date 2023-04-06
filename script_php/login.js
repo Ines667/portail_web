@@ -1,35 +1,29 @@
-const mysql = require('mysql');
- 
-// Configurer la connexion à la base de données MySQL
-const connection = mysql.createConnection({
-  host: 'db5011701111.hosting-data.io',
-  user: 'dbu5537428',
-  password: 'Mathiscamille2021',
-  database: 'dbs9859875'
-});
+const loginBtn = document.getElementById('btn-login');
 
-// Établir la connexion à la base de données
-connection.connect();
+loginBtn.addEventListener('submit', (event) => {
+  event.preventDefault();
 
-// Sélectionner le formulaire et les champs d'entrée
-const loginForm = document.querySelector('#login-form');
-const emailInput = document.querySelector('#email');
-const passwordInput = document.querySelector('#password');
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
 
-// Ajouter un gestionnaire d'événements pour le formulaire de connexion
-loginForm.addEventListener('submit', (event) => {
-  event.preventDefault(); // Empêcher le formulaire de se soumettre
-
-  // Récupérer les valeurs des champs d'entrée
-  const email = emailInput.value;
-  const password = passwordInput.value;
-
-  // Exécuter une requête SELECT pour récupérer les informations de l'utilisateur
-  connection.query('SELECT * FROM user WHERE mail = ? AND password = ?', [email, password], (error, results, fields) => {
-    if (error) throw error;
-    console.log(results);
+  fetch('http://exemple.com/api/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email, password })
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Mauvais nom d\'utilisateur ou mot de passe');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // La connexion a réussi, vous pouvez rediriger l'utilisateur vers une page de profil ou afficher un message de bienvenue.
+  })
+  .catch(error => {
+    // La connexion a échoué, vous pouvez afficher un message d'erreur à l'utilisateur.
+    console.error(error);
   });
 });
-
-// Fermer la connexion à la base de données
-connection.end();

@@ -36,9 +36,11 @@ include "script_php/createlogin.php";
 
 
         </header>
-        <img class="image_logo" src="logo2.webp">
         <main>
         <div class="rectanglebox_create">
+
+        
+        <img class="image_logo" src="logo2.webp">
         <form method="post" class="label_create">
 
         <label for="username">Votre identifiant :</label><br>

@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-
-
 body{
     margin: 0;
     padding: 0;
@@ -16,8 +14,7 @@ body{
 
 .image_logo{
     margin-bottom: 3%;
-    margin-top: 5%;
-
+    margin-top: 7%;
 }
 
 .echo_sucess {
@@ -148,12 +145,10 @@ input#file-upload-button{
                         height: auto; /* Hauteur de la div */
                         background-color: #eeeeeee0; /* Couleur de fond grise */
                         position: absolute; /* Position absolue pour centrer la div */
-                        top: 48%; /* Position verticale centrée */
                         left: 50%; /* Position horizontale centrée */
-                        transform: translate(-50%, -50%); /* Centrage de la div */
+                        transform: translate(-50%, 25%); /* Centrage de la div */
                         border-radius: 3%;
                         border: 2px solid black;
-                        margin-top: 4%;
                     }
 
                     .text_index {

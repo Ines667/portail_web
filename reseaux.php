@@ -29,7 +29,7 @@
 
     <div class="container_reseaux">
 	<a href="https://fr.linkedin.com/company/facil-ingenierie"><img class="img_reseaux"src="style/linkedin.png" alt="LinkedIn"></a>
-	<a href="https://ne-np.facebook.com/people/FACIL-Ing%C3%A9nierie/100067825801579/"><img class="img_reseaux"src="style/facebook.png" alt="Facebook"></a>
+	<a href="https://fr.facebook.com/people/FACIL-Ing%C3%A9nierie/100067825801579/"><img class="img_reseaux"src="style/facebook.png" alt="Facebook"></a>
 	<a href="https://facil-ingenierie.com/"><img class="img_reseaux"src="style/siteinternet.png" alt="Example"></a>
     </div>
 </body>
