@@ -115,8 +115,6 @@
 
 
 
-
-
                         <!-- BOUTON ENVOYER -->
                         <button class="button" type="button" onclick="encodeBase64()"   >Envoyer</button>
                         <div class="barre">
