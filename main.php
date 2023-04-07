@@ -55,7 +55,6 @@
                         
 
                         <input class = "file" type = "file" name="upload_file_cv" id="upload_file_cv"title=" " /> <br/>
-                        <!-- <button class="button" type="button" onclick="encodeBase64()"   >Envoyer</button> -->
                         <div class="barre">
                         </div>
 
