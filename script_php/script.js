@@ -99,5 +99,4 @@ function encodeBase64(){
         };
         reader_fichier_justif_domi.readAsDataURL(fichier_justif_domi);
 
-
     }  
