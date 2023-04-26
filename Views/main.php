@@ -118,6 +118,11 @@
                         <button class="button" type="button" onclick="encodeBase64()"   >Envoyer</button>
                         <div class="barre">
                         </div>
+                        <p>
+                            <?php
+                            echo json_decode($_SESSION['USER']);
+                            ?>
+                        </p>
 
 
         </form>

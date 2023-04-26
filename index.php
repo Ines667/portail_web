@@ -48,6 +48,5 @@
                 </form>
             </div>
         </main>
-        <!-- <script src="Script/login.js"></script> -->
     </body>
 </html>
