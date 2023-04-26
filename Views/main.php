@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style/index.css">
+        <link rel="stylesheet" href="../style/index.css">
         <script src="script_php/script.js"></script>
         <title>FACIL</title>
         <link rel="icon" href="favicon.webp" sizes="196x196">
@@ -40,7 +40,7 @@
 
                         <div class="barre">
                         </div>
-                        <img class="image_logo" src="logo2.webp">
+                        <img class="image_logo" src="../style/logo2.webp">
 
 
 
