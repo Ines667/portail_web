@@ -18,7 +18,7 @@
                 <li><a class="active"href="http://test-facil.fr/contact.php">Contact</a></li>
                 <li><a href="http://test-facil.fr/create.php">Création de compte</a></li>
                 <li><a href="http://test-facil.fr/reseaux.php">Réseaux</a></li>
-                <li><a href="http://test-facil.fr/index.php">Log out </a></li>
+                <li><a href="../Script/disconnect.php">Log out </a></li>
             </ul>
             </nav>
 

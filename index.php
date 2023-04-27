@@ -22,7 +22,7 @@
                 <li><a href="./Views/contact.php">Contact</a></li>
                 <li><a href="./Views/create.php">Création de compte</a></li>
                 <li><a href="./Views/reseaux.php">Réseaux</a></li>
-                <li><a href="./Views/index.php">Log out </a></li>
+                <li><a href="../Script/disconnect.php">Log out </a></li>
             </ul>
             </nav>
 
@@ -30,7 +30,7 @@
         </header>
 
         <main>
-            
+
 
 
             <div class="rectanglebox">
@@ -44,9 +44,16 @@
                         <button type="submit"class = "button_index"name="login" id="btn-login">Se connecter</button> <br/>
                 </form>
                 <form action="create.php" method="post">
-                <button class = "button_index"name="creation"id="creation">Me créer un compte</button> <br/>
+                <button class = "button_index"name="creation"id="creation" type="submit">Me créer un compte</button> <br/>
                 </form>
             </div>
+
+            <?php
+                if (isset($_GET['password']) && $_GET['password'] === 'false') {
+                    // Afficher une alerte avec un message d'erreur
+                    echo '<script>alert("Mot de passe ne correspond pas. Veuillez réessayer.");</script>';
+                }
+            ?>
         </main>
     </body>
 </html>

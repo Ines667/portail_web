@@ -28,9 +28,9 @@ function login(string $email, string $password){
     $user = $user->load();
     
     if($user === null){
-        header('Location: ../Views/login.php?unknowUser');
+        header('Location: ../index.php?unknowUser');
     }else if(!$user){
-        header('Location: ../Views/login.php?wrongPass');
+        header('Location: ../index.php?password=false');
     }else{
         session_start();
         $_SESSION['USER'] = json_encode($user);

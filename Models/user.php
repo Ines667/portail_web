@@ -136,7 +136,7 @@ class User
     /**
      * Get the value of email
      */ 
-    public function getEmail()
+    public function getemail()
     {
         return $this->email;
     }
@@ -197,7 +197,7 @@ class User
     /**
      * Get the value of username
      */ 
-    public function getUsername()
+    public function getusername()
     {
         return $this->username;
     }
@@ -207,7 +207,7 @@ class User
      *
      * @return  self
      */ 
-    public function setUsername($username)
+    public function setusername($username)
     {
         $this->username = $username;
 

@@ -5,36 +5,23 @@ require "../utils/database.php";
 require "../Models/user.php";
 
 $user = json_decode($_SESSION['USER']);
-$user = (new User($db))->setId($user->id)->setRole($user->role)->setPassword_hash($user->password_hash)->setUsername($user->username)->setEmail($user->email)->setFirstName($user->firstName)->setLastName($user->lastName);
+$user = (new User($db))->setid($user->id)->setpassword($user->password)->setusername($user->username)->setemail($user->email)->setfirstname($user->firstname)->setlastname($user->lastname);
 
-if(!isset($_POST['USER_ID']) || !isset($_POST['lastname']) || !isset($_POST['firstname']) || !isset($_POST['username'])){
+if(!isset($_POST['late-password']) || !isset($_POST['new-password'])){
     echo json_encode(["ERROR" => "missing params"]);    
     exit();
 }
-if(($user->id != $_POST['USER_ID'] && $user->role !== 'ADMIN')){
-    echo json_encode(["ERROR"=>"vous ne pouvez pas modifier un autre utilisateur que le votre !"]);
-    exit();
-}
 
-if(isset($_POST['password'])){
-    $user->setPassword_hash(password_hash($_POST['password'], PASSWORD_DEFAULT));
+
+if($_POST['late-password'] == $user->password){
+    $user->setpassword($_POST['new-password']);
+    if($user->save()){
+        $_SESSION['USER'] = json_encode($user);
+        header("Location: ../Views/main.php");
+    };
 }else{
-    $user->setUsername($_POST['username'])
-    ->setEmail($_POST['mail'])
-    ->setFirstName($_POST['firstname'])
-    ->setLastName($_POST['lastname']);
+    header("Location: ../Views/update-user.php?password=false");
 }
 
 
-
-if($user->save()){
-    $_SESSION['USER'] = json_encode($user);
-
-    if($user->role == 'ADMIN' && $user->id != $_POST['USER_ID']){
-        header('Location: /Views/admin.php');
-        exit();
-    }
-    
-    header("Location: /Views/myAccount.php");
-}
 
