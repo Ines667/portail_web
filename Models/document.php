@@ -1,5 +1,5 @@
 <?php
-class User
+class Document
 {
     public $db;
     public $id = null;
@@ -14,10 +14,8 @@ class User
         $this->db = $db;
     }
 
-    public function create(){
+    public function create_document(){
         if(!$this->id){
-            // L'utilisateur n'existe pas on le crée
-            $id_decode = json_decode($_SESSION['USER']);
             $stmt = $this->db->prepare("INSERT INTO document (name, belongs, base64) 
                 VALUES (:name, :belongs, :base64)");
 
@@ -49,7 +47,7 @@ class User
 
     public function read(){
         if($this->id){
-            $stmt = $this->db->prepare("SELECT * FROM document where id = :user_id");
+            $stmt = $this->db->prepare("SELECT * FROM document where belongs = :user_id");
             $stmt->bindParam(':user_id', $this->id, PDO::PARAM_INT);
             $stmt->execute();
             $db_user = $stmt->fetch();
@@ -58,28 +56,7 @@ class User
             $this->base64 = $db_user->base64;
 
             return $this;
-        }else
-        if($this->email){
-            $stmt = $this->db->prepare("SELECT * FROM user where email = :email");
-            $stmt->bindParam(':email', $this->email);
-            $stmt->execute();
-            $db_user = $stmt->fetch();
-
-            if(!$db_user) return null;
-            if($this->password === $db_user->password){
-                $this->id = $db_user->id;
-                // $this->createDate = $db_user->createDate;
-                $this->name = $db_user->name;
-                $this->belongs = $db_user->belongs;
-                $this->base64 = $db_user->base64;
-
-                return $this;
-            }else{
-                return false;
-            }
-
         }
-        echo "no field to find user";
         exit();
     }
 

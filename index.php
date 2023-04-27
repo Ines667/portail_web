@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style/index.css">
         <title>Connection WebPortail Facil</title>
-        <link rel="icon" href="./style/logo.png" sizes="196x196">
+        <link rel="icon" href="./Style/favicon.webp" sizes="196x196">
 
     </head>
 

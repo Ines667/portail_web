@@ -98,5 +98,6 @@ function encodeBase64(){
             console.log(base64_justif_domi);
         };
         reader_fichier_justif_domi.readAsDataURL(fichier_justif_domi);
-
+        
+        window.location.replace("../Controllers/add-document.php")
     }  

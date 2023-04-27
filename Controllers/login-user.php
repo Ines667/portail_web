@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 require "../utils/database.php";
 require "../Models/user.php";
@@ -29,14 +29,13 @@ function login(string $email, string $password){
     
     if($user === null){
         header('Location: ../Views/login.php?unknowUser');
-        exit();
     }else if(!$user){
         header('Location: ../Views/login.php?wrongPass');
-        exit();
     }else{
+        session_start();
         $_SESSION['USER'] = json_encode($user);
         header('Location: ../Views/main.php');
-        exit();
+        
     }
     
 

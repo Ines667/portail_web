@@ -1,4 +1,7 @@
+<?php 
+    session_start();
 
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,9 +9,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../style/index.css">
-        <script src="script_php/script.js"></script>
         <title>FACIL</title>
-        <link rel="icon" href="favicon.webp" sizes="196x196">
+        <link rel="icon" href="../Style/favicon.webp" sizes="196x196">
         
 
     </head>
@@ -25,7 +27,7 @@
                 <li><a class="active" href="http://test-facil.fr/index.php">Home</a></li>
                 <li><a href="http://test-facil.fr/contact.php">Contact</a></li>
                 <li><a href="http://test-facil.fr/reseaux.php">Réseaux</a></li>
-                <li><a href="http://test-facil.fr/index.php">Log out </a></li>
+                <li><a href="../Script/disconnect.php">Log out </a></li>
             </ul>
             </nav>
 
@@ -36,12 +38,11 @@
         </header>
 
         <main>
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST" action="../Script/encode-document.php" enctype="multipart/form-data">
 
                         <div class="barre">
                         </div>
                         <img class="image_logo" src="../style/logo2.webp">
-
 
 
 
@@ -54,7 +55,7 @@
                         <h3>CV</h3> <H5 class="obligatoire">Obligatoire</H5> 
                         
 
-                        <input class = "file" type = "file" name="upload_file_cv" id="upload_file_cv"title=" " /> <br/>
+                        <input class = "file" type = "file" name="upload_file_cv" id="upload_file_cv"/> <br/>
                         <div class="barre">
                         </div>
 
@@ -111,23 +112,25 @@
                         <input class = "file" type = "file" name="upload_file_justif_domi" id="upload_file_justif_domi"/> <br/>
 
 
+                        <p>
+                            <?php
 
+                                $decode = json_decode($_SESSION['USER']);
+
+                                echo $decode->id;
+
+                            ?>
+                        </p>
 
 
                         <!-- BOUTON ENVOYER -->
-                        <button class="button" type="button" onclick="encodeBase64()"   >Envoyer</button>
+                        <button class="button" type="submit">Envoyer</button>
                         <div class="barre">
                         </div>
-                        <p>
-                            <?php
-                            echo json_decode($_SESSION['USER']);
-                            ?>
-                        </p>
 
 
         </form>
 
         </main>
-        <script src="script_php/script.js"></script>
     </body>
 </html>
