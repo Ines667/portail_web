@@ -1,9 +1,9 @@
 <?php
-class User
+class users
 {
     public $db;
     public $id = null;
-    public $username;
+    public $phone;
     public $firstname;
     public $lastname;
     public $email;
@@ -19,10 +19,10 @@ class User
     public function save(){
         if(!$this->id){
             // L'utilisateur n'existe pas on le crée
-            $stmt = $this->db->prepare("INSERT INTO user (username, firstname, lastname, email, password) 
-                VALUES (:username, :firstname, :lastname, :email, :password)");
+            $stmt = $this->db->prepare("INSERT INTO users (phone, firstname, lastname, email, password, active) 
+                VALUES (:phone, :firstname, :lastname, :email, :password, 1)");
 
-            $stmt->bindParam(':username', $this->username);
+            $stmt->bindParam(':phone', $this->phone); 
             $stmt->bindParam(':firstname', $this->firstname);
             $stmt->bindParam(':lastname', $this->lastname);
             $stmt->bindParam(':email', $this->email);
@@ -35,17 +35,17 @@ class User
             }
             return null;
         }else{
-            $stmt = $this->db->prepare("UPDATE user SET username = :username, firstname = :firstname, lastname = :lastname, email = :email,
-                 password = :password WHERE id = :user_id");
+            $stmt = $this->db->prepare("UPDATE users SET phone = :phone, firstname = :firstname, lastname = :lastname, email = :email,
+                 password = :password WHERE id = :users_id");
             
-            $stmt->bindParam(':username', $this->username);
+            $stmt->bindParam(':phone', $this->phone);
             $stmt->bindParam(':firstname', $this->firstname);
             $stmt->bindParam(':lastname', $this->lastname);
             $stmt->bindParam(':email', $this->email);
             $stmt->bindParam(':password', $this->password);
 
 
-            $stmt->bindParam(':user_id', $this->id, PDO::PARAM_INT);
+            $stmt->bindParam(':users_id', $this->id, PDO::PARAM_INT);
 
             return $stmt->execute();
         }
@@ -54,33 +54,33 @@ class User
 
     public function load(){
         if($this->id){
-            $stmt = $this->db->prepare("SELECT * FROM user where id = :user_id");
-            $stmt->bindParam(':user_id', $this->id, PDO::PARAM_INT);
+            $stmt = $this->db->prepare("SELECT * FROM users where id = :users_id");
+            $stmt->bindParam(':users_id', $this->id, PDO::PARAM_INT);
             $stmt->execute();
-            $db_user = $stmt->fetch();
-            $this->username = $db_user->username;
-            $this->firstname = $db_user->firstname;
-            $this->lastname = $db_user->lastname;
-            $this->email = $db_user->email;
-            $this->password = $db_user->password;
+            $db_users = $stmt->fetch();
+            $this->phone = $db_users->phone;
+            $this->firstname = $db_users->firstname;
+            $this->lastname = $db_users->lastname;
+            $this->email = $db_users->email;
+            $this->password = $db_users->password;
 
             return $this;
         }else
         if($this->email){
-            $stmt = $this->db->prepare("SELECT * FROM user where email = :email");
+            $stmt = $this->db->prepare("SELECT * FROM users where email = :email");
             $stmt->bindParam(':email', $this->email);
             $stmt->execute();
-            $db_user = $stmt->fetch();
+            $db_users = $stmt->fetch();
 
-            if(!$db_user) return null;
-            if($this->password === $db_user->password){
-                $this->id = $db_user->id;
-                // $this->createDate = $db_user->createDate;
-                $this->username = $db_user->username;
-                $this->firstname = $db_user->firstname;
-                $this->lastname = $db_user->lastname;
-                $this->email = $db_user->email;
-                $this->password = $db_user->password;
+            if(!$db_users) return null;
+            if($this->password === $db_users->password){
+                $this->id = $db_users->id;
+                // $this->createDate = $db_users->createDate;
+                $this->phone = $db_users->phone;
+                $this->firstname = $db_users->firstname;
+                $this->lastname = $db_users->lastname;
+                $this->email = $db_users->email;
+                $this->password = $db_users->password;
 
                 return $this;
             }else{
@@ -88,7 +88,7 @@ class User
             }
 
         }
-        echo "no field to find user";
+        echo "no field to find users";
         exit();
     }
 
@@ -195,21 +195,21 @@ class User
     }
 
     /**
-     * Get the value of username
+     * Get the value of phone
      */ 
-    public function getusername()
+    public function getphone()
     {
-        return $this->username;
+        return $this->phone;
     }
 
     /**
-     * Set the value of username
+     * Set the value of phone
      *
      * @return  self
      */ 
-    public function setusername($username)
+    public function setphone($phone)
     {
-        $this->username = $username;
+        $this->phone = $phone;
 
         return $this;
     }

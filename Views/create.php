@@ -39,8 +39,6 @@
         <img class="image_logo" src="../style/logo2.webp">
         <form method="post" class="label_create" action="../Controllers/create-user.php">
 
-                <label for="username">Votre identifiant :</label><br>
-                <input class="bouton_main"type="username" id="username" name="username" required><br>
 
                 <label for="email">Adresse email :</label><br>
                 <input class="bouton_main"type="email" id="email" name="email" required><br>
@@ -54,6 +52,9 @@
 
                 <label for="text">Nom</label><br>
                 <input class="bouton_main"type="text" id="lastname" name="lastname" required><br>
+
+                <label for="text">Numéro de téléphone</label><br>
+                <input class="bouton_main"type="text" id="phone" name="phone" required><br>
 
                 <button class = "button_create"name="createlogin" type="submit">Créer son compte</button>
         </form>

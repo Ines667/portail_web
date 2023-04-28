@@ -1,8 +1,8 @@
 <?php
-class User
+class Employer
 {
     public $db;
-    public $id = null;
+    public $IDEMPLOYER = null;
     public $NOM;
     public $PRENOM;
     public $ADRESSE;
@@ -12,46 +12,34 @@ class User
     public $DATENAISSANCE;
     public $LIEUXNAISSANCE;
     public $NUMSECU;
-    public $TELFIXE;
     public $TELPORTABLE;
     public $MAIL;
     public $SEXE;
     public $CIVILITE;
-    public $NOMJF;
     public $NATIONALITE;
     public $AGES;
-    public $SITUFAM;
-    public $NBREENFAN;
     public $PERSOPREV;
     public $TELPREV;
     public $ETRANGER;
     public $NUMTITRESEJOUR;
-    public $NUMPERSOETRANGER;
-    public $OBSERVATIONETRANGER;
     public $DATEVALIDTS;
     public $PREINSCRIPTION;
     public $Typedecontrat;
-    public $EN_POSTE;
-    public $PLUS_EN_POSTE;
-    public $EnPresta;
-    public $PrevisionPresta;
-    public $DEPART_NAISSANCE;
     public $IBAN;
     public $RIB;
     public $DateValiditeNOK;
     public $PRE_Odm;
     public $AnneeEnCour;
     public $code;
-    // public $createDate;
-    
+    public $iduser;
 
     public function __construct(PDO $db)
     {
         $this->db = $db;
     }
 
-    public function new_employe(){
-        if(!$this->id){
+    public function create_employe(){
+        if(!$this->IDEMPLOYER){
             // L'utilisateur n'existe pas on le crée
             $stmt = $this->db->prepare("INSERT INTO EMPLOYER (
                 NOM,
@@ -81,7 +69,7 @@ class User
                 DateValiditeNOK,
                 PRE_Odm,
                 AnneeEnCour,
-                code
+                iduser
             ) VALUES (
                 :nom,
                 :prenom,
@@ -109,8 +97,8 @@ class User
                 :rib,
                 :datevaliditenok,
                 :preodm,
-                :anneeen cour,
-                :code
+                :anneeencour,
+                :iduser
             )");
 
         $stmt->bindParam(':nom', $this->NOM);
@@ -139,11 +127,11 @@ class User
         $stmt->bindParam(':rib', $this->RIB);
         $stmt->bindParam(':datevaliditenok', $this->DateValiditeNOK);
         $stmt->bindParam(':preodm', $this->PRE_Odm);
-        $stmt->bindParam(':anneeen cour', $this->AnneeEnCour);
-        $stmt->bindParam(':code', $this->code);
+        $stmt->bindParam(':anneeencour', $this->AnneeEnCour);
+        $stmt->bindParam(':iduser', $this->iduser);
 
             if($stmt->execute()){
-                $this->id = $this->db->lastInsertId();
+                $this->IDEMPLOYER = $this->db->lastInsertId();
 
                 return $this;
             }
@@ -177,7 +165,7 @@ class User
                 DateValiditeNOK,
                 PRE_Odm,
                 AnneeEnCour,
-                code
+                iduser
             ) VALUES (
                 :nom,
                 :prenom,
@@ -205,8 +193,8 @@ class User
                 :rib,
                 :datevaliditenok,
                 :preodm,
-                :anneeen cour,
-                :code");
+                :anneeencour,
+                :iduser");
             
             $stmt->bindParam(':nom', $this->NOM);
             $stmt->bindParam(':prenom', $this->PRENOM);
@@ -234,11 +222,9 @@ class User
             $stmt->bindParam(':rib', $this->RIB);
             $stmt->bindParam(':datevaliditenok', $this->DateValiditeNOK);
             $stmt->bindParam(':preodm', $this->PRE_Odm);
-            $stmt->bindParam(':anneeen cour', $this->AnneeEnCour);
-            $stmt->bindParam(':code', $this->code);
+            $stmt->bindParam(':anneeencour', $this->AnneeEnCour);
+            $stmt->bindParam(':iduser', $this->iduser);
 
-
-            $stmt->bindParam(':user_id', $this->id, PDO::PARAM_INT);
 
             return $stmt->execute();
         }
@@ -246,165 +232,657 @@ class User
 
 
     public function load(){
-        if($this->id){
-            $stmt = $this->db->prepare("SELECT * FROM EMPLOYER where IDEMPLOYER = :user_id");
-            $stmt->bindParam(':user_id', $this->id, PDO::PARAM_INT);
+        if($this->IDEMPLOYER){
+            $stmt = $this->db->prepare("SELECT * FROM EMPLOYER where IDEMPLOYER = :id");
+            $stmt->bindParam(':id', $this->IDEMPLOYER, PDO::PARAM_INT);
             $stmt->execute();
-            $db_user = $stmt->fetch();
-            $this->username = $db_user->username;
-            $this->firstname = $db_user->firstname;
-            $this->lastname = $db_user->lastname;
-            $this->email = $db_user->email;
-            $this->password = $db_user->password;
-
+            $db_employer = $stmt->fetch();
+            $this->NOM = $db_employer->NOM;
+            $this->PRENOM = $db_employer->PRENOM;
+            $this->ADRESSE = $db_employer->ADRESSE;
+            $this->VILLE = $db_employer->VILLE;
+            $this->PAYS = $db_employer->PAYS;
+            $this->CP = $db_employer->CP;
+            $this->DATENAISSANCE = $db_employer->DATENAISSANCE;
+            $this->LIEUXNAISSANCE = $db_employer->LIEUXNAISSANCE;
+            $this->NUMSECU = $db_employer->NUMSECU;
+            $this->TELPORTABLE = $db_employer->TELPORTABLE;
+            $this->MAIL = $db_employer->MAIL;
+            $this->SEXE = $db_employer->SEXE;
+            $this->CIVILITE = $db_employer->CIVILITE;
+            $this->NATIONALITE = $db_employer->NATIONALITE;
+            $this->AGES = $db_employer->AGES;
+            $this->PERSOPREV = $db_employer->PERSOPREV;
+            $this->TELPREV = $db_employer->TELPREV;
+            $this->ETRANGER = $db_employer->ETRANGER;
+            $this->NUMTITRESEJOUR = $db_employer->NUMTITRESEJOUR;
+            $this->DATEVALIDTS = $db_employer->DATEVALIDTS;
+            $this->PREINSCRIPTION = $db_employer->PREINSCRIPTION;
+            $this->Typedecontrat = $db_employer->Typedecontrat;
+            $this->IBAN = $db_employer->IBAN;
+            $this->RIB = $db_employer->RIB;
+            $this->DateValiditeNOK = $db_employer->DateValiditeNOK;
+            $this->PRE_Odm = $db_employer->PRE_Odm;
+            $this->AnneeEnCour = $db_employer->AnneeEnCour;
+            $this->iduser = $db_employer->iduser;
+    
             return $this;
-        }else
-        if($this->email){
-            $stmt = $this->db->prepare("SELECT * FROM user where email = :email");
-            $stmt->bindParam(':email', $this->email);
-            $stmt->execute();
-            $db_user = $stmt->fetch();
-
-            if(!$db_user) return null;
-            if($this->password === $db_user->password){
-                $this->id = $db_user->id;
-                // $this->createDate = $db_user->createDate;
-                $this->username = $db_user->username;
-                $this->firstname = $db_user->firstname;
-                $this->lastname = $db_user->lastname;
-                $this->email = $db_user->email;
-                $this->password = $db_user->password;
-
-                return $this;
-            }else{
-                return false;
-            }
-
+        } else {
+            echo "no field to find user";
+            exit();
         }
-        echo "no field to find user";
-        exit();
     }
 
 
+
     /**
-     * Get the value of firstname
+     * Get the value of IDEMPLOYER
      */ 
-    public function getfirstname()
+    public function getIDEMPLOYER()
     {
-        return $this->firstname;
+        return $this->IDEMPLOYER;
     }
 
     /**
-     * Set the value of firstname
+     * Set the value of IDEMPLOYER
      *
      * @return  self
      */ 
-    public function setfirstname($firstname)
+    public function setIDEMPLOYER($IDEMPLOYER)
     {
-        $this->firstname = $firstname;
+        $this->IDEMPLOYER = $IDEMPLOYER;
 
         return $this;
     }
 
     /**
-     * Get the value of lastname
+     * Get the value of NOM
      */ 
-    public function getlastname()
+    public function getNOM()
     {
-        return $this->lastname;
+        return $this->NOM;
     }
 
     /**
-     * Set the value of lastname
+     * Set the value of NOM
      *
      * @return  self
      */ 
-    public function setlastname($lastname)
+    public function setNOM($NOM)
     {
-        $this->lastname = $lastname;
+        $this->NOM = $NOM;
 
         return $this;
     }
 
     /**
-     * Get the value of email
+     * Get the value of PRENOM
      */ 
-    public function getemail()
+    public function getPRENOM()
     {
-        return $this->email;
+        return $this->PRENOM;
     }
 
     /**
-     * Set the value of email
+     * Set the value of PRENOM
      *
      * @return  self
      */ 
-    public function setemail($email)
+    public function setPRENOM($PRENOM)
     {
-        $this->email = $email;
+        $this->PRENOM = $PRENOM;
 
         return $this;
     }
 
     /**
-     * Get the value of password
+     * Get the value of ADRESSE
      */ 
-    public function getpassword()
+    public function getADRESSE()
     {
-        return $this->password;
+        return $this->ADRESSE;
     }
 
     /**
-     * Set the value of password
+     * Set the value of ADRESSE
      *
      * @return  self
      */ 
-    public function setpassword($password)
+    public function setADRESSE($ADRESSE)
     {
-        $this->password = $password;
+        $this->ADRESSE = $ADRESSE;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of VILLE
+     */ 
+    public function getVILLE()
+    {
+        return $this->VILLE;
+    }
+
+    /**
+     * Set the value of VILLE
+     *
+     * @return  self
+     */ 
+    public function setVILLE($VILLE)
+    {
+        $this->VILLE = $VILLE;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Get the value of PAYS
+     */ 
+    public function getPAYS()
+    {
+        return $this->PAYS;
+    }
+
+    /**
+     * Set the value of PAYS
+     *
+     * @return  self
+     */ 
+    public function setPAYS($PAYS)
+    {
+        $this->PAYS = $PAYS;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of CP
+     */ 
+    public function getCP()
+    {
+        return $this->CP;
+    }
+
+    /**
+     * Set the value of CP
+     *
+     * @return  self
+     */ 
+    public function setCP($CP)
+    {
+        $this->CP = $CP;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of DATENAISSANCE
+     */ 
+    public function getDATENAISSANCE()
+    {
+        return $this->DATENAISSANCE;
+    }
+
+    /**
+     * Set the value of DATENAISSANCE
+     *
+     * @return  self
+     */ 
+    public function setDATENAISSANCE($DATENAISSANCE)
+    {
+        $this->DATENAISSANCE = $DATENAISSANCE;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of LIEUXNAISSANCE
+     */ 
+    public function getLIEUXNAISSANCE()
+    {
+        return $this->LIEUXNAISSANCE;
+    }
+
+    /**
+     * Set the value of LIEUXNAISSANCE
+     *
+     * @return  self
+     */ 
+    public function setLIEUXNAISSANCE($LIEUXNAISSANCE)
+    {
+        $this->LIEUXNAISSANCE = $LIEUXNAISSANCE;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of NUMSECU
+     */ 
+    public function getNUMSECU()
+    {
+        return $this->NUMSECU;
+    }
+
+    /**
+     * Set the value of NUMSECU
+     *
+     * @return  self
+     */ 
+    public function setNUMSECU($NUMSECU)
+    {
+        $this->NUMSECU = $NUMSECU;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Get the value of TELPORTABLE
+     */ 
+    public function getTELPORTABLE()
+    {
+        return $this->TELPORTABLE;
+    }
+
+    /**
+     * Set the value of TELPORTABLE
+     *
+     * @return  self
+     */ 
+    public function setTELPORTABLE($TELPORTABLE)
+    {
+        $this->TELPORTABLE = $TELPORTABLE;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of MAIL
+     */ 
+    public function getMAIL()
+    {
+        return $this->MAIL;
+    }
+
+    /**
+     * Set the value of MAIL
+     *
+     * @return  self
+     */ 
+    public function setMAIL($MAIL)
+    {
+        $this->MAIL = $MAIL;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of SEXE
+     */ 
+    public function getSEXE()
+    {
+        return $this->SEXE;
+    }
+
+    /**
+     * Set the value of SEXE
+     *
+     * @return  self
+     */ 
+    public function setSEXE($SEXE)
+    {
+        $this->SEXE = $SEXE;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of CIVILITE
+     */ 
+    public function getCIVILITE()
+    {
+        return $this->CIVILITE;
+    }
+
+    /**
+     * Set the value of CIVILITE
+     *
+     * @return  self
+     */ 
+    public function setCIVILITE($CIVILITE)
+    {
+        $this->CIVILITE = $CIVILITE;
 
         return $this;
     }
 
 
     /**
-     * Get the value of id
+     * Get the value of NATIONALITE
      */ 
-    public function getId()
+    public function getNATIONALITE()
     {
-        return $this->id;
+        return $this->NATIONALITE;
     }
 
     /**
-     * Set the value of id
+     * Set the value of NATIONALITE
      *
      * @return  self
      */ 
-    public function setId($id)
+    public function setNATIONALITE($NATIONALITE)
     {
-        $this->id = $id;
+        $this->NATIONALITE = $NATIONALITE;
 
         return $this;
     }
 
     /**
-     * Get the value of username
+     * Get the value of AGES
      */ 
-    public function getusername()
+    public function getAGES()
     {
-        return $this->username;
+        return $this->AGES;
     }
 
     /**
-     * Set the value of username
+     * Set the value of AGES
      *
      * @return  self
      */ 
-    public function setusername($username)
+    public function setAGES($AGES)
     {
-        $this->username = $username;
+        $this->AGES = $AGES;
 
         return $this;
     }
 
+
+
+    /**
+     * Get the value of PERSOPREV
+     */ 
+    public function getPERSOPREV()
+    {
+        return $this->PERSOPREV;
+    }
+
+    /**
+     * Set the value of PERSOPREV
+     *
+     * @return  self
+     */ 
+    public function setPERSOPREV($PERSOPREV)
+    {
+        $this->PERSOPREV = $PERSOPREV;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of TELPREV
+     */ 
+    public function getTELPREV()
+    {
+        return $this->TELPREV;
+    }
+
+    /**
+     * Set the value of TELPREV
+     *
+     * @return  self
+     */ 
+    public function setTELPREV($TELPREV)
+    {
+        $this->TELPREV = $TELPREV;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ETRANGER
+     */ 
+    public function getETRANGER()
+    {
+        return $this->ETRANGER;
+    }
+
+    /**
+     * Set the value of ETRANGER
+     *
+     * @return  self
+     */ 
+    public function setETRANGER($ETRANGER)
+    {
+        $this->ETRANGER = $ETRANGER;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of NUMTITRESEJOUR
+     */ 
+    public function getNUMTITRESEJOUR()
+    {
+        return $this->NUMTITRESEJOUR;
+    }
+
+    /**
+     * Set the value of NUMTITRESEJOUR
+     *
+     * @return  self
+     */ 
+    public function setNUMTITRESEJOUR($NUMTITRESEJOUR)
+    {
+        $this->NUMTITRESEJOUR = $NUMTITRESEJOUR;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of DATEVALIDTS
+     */ 
+    public function getDATEVALIDTS()
+    {
+        return $this->DATEVALIDTS;
+    }
+
+    /**
+     * Set the value of DATEVALIDTS
+     *
+     * @return  self
+     */ 
+    public function setDATEVALIDTS($DATEVALIDTS)
+    {
+        $this->DATEVALIDTS = $DATEVALIDTS;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of PREINSCRIPTION
+     */ 
+    public function getPREINSCRIPTION()
+    {
+        return $this->PREINSCRIPTION;
+    }
+
+    /**
+     * Set the value of PREINSCRIPTION
+     *
+     * @return  self
+     */ 
+    public function setPREINSCRIPTION($PREINSCRIPTION)
+    {
+        $this->PREINSCRIPTION = $PREINSCRIPTION;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Typedecontrat
+     */ 
+    public function getTypedecontrat()
+    {
+        return $this->Typedecontrat;
+    }
+
+    /**
+     * Set the value of Typedecontrat
+     *
+     * @return  self
+     */ 
+    public function setTypedecontrat($Typedecontrat)
+    {
+        $this->Typedecontrat = $Typedecontrat;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Get the value of IBAN
+     */ 
+    public function getIBAN()
+    {
+        return $this->IBAN;
+    }
+
+    /**
+     * Set the value of IBAN
+     *
+     * @return  self
+     */ 
+    public function setIBAN($IBAN)
+    {
+        $this->IBAN = $IBAN;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of RIB
+     */ 
+    public function getRIB()
+    {
+        return $this->RIB;
+    }
+
+    /**
+     * Set the value of RIB
+     *
+     * @return  self
+     */ 
+    public function setRIB($RIB)
+    {
+        $this->RIB = $RIB;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of DateValiditeNOK
+     */ 
+    public function getDateValiditeNOK()
+    {
+        return $this->DateValiditeNOK;
+    }
+
+    /**
+     * Set the value of DateValiditeNOK
+     *
+     * @return  self
+     */ 
+    public function setDateValiditeNOK($DateValiditeNOK)
+    {
+        $this->DateValiditeNOK = $DateValiditeNOK;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of PRE_Odm
+     */ 
+    public function getPRE_Odm()
+    {
+        return $this->PRE_Odm;
+    }
+
+    /**
+     * Set the value of PRE_Odm
+     *
+     * @return  self
+     */ 
+    public function setPRE_Odm($PRE_Odm)
+    {
+        $this->PRE_Odm = $PRE_Odm;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of AnneeEnCour
+     */ 
+    public function getAnneeEnCour()
+    {
+        return $this->AnneeEnCour;
+    }
+
+    /**
+     * Set the value of AnneeEnCour
+     *
+     * @return  self
+     */ 
+    public function setAnneeEnCour($AnneeEnCour)
+    {
+        $this->AnneeEnCour = $AnneeEnCour;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of code
+     */ 
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Set the value of code
+     *
+     * @return  self
+     */ 
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of iduser
+     */ 
+    public function getIduser()
+    {
+        return $this->iduser;
+    }
+
+    /**
+     * Set the value of iduser
+     *
+     * @return  self
+     */ 
+    public function setIduser($iduser)
+    {
+        $this->iduser = $iduser;
+
+        return $this;
+    }
 }
+

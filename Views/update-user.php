@@ -22,7 +22,7 @@
 
             <nav>
             <ul>
-                <li><a  href="../views/index.php">Home</a></li>
+                <li><a  href="../views/main.php">Home</a></li>
                 <li><a href="./Views/contact.php">Contact</a></li>
                 <li><a href="../Views/espaceutilisateur.php">Mon compte</a></li>
                 <li><a href="../Script/disconnect.php">Log out </a></li>

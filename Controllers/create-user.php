@@ -1,11 +1,14 @@
 <?php
-require "../utils/database.php";
+
+require "../Utils/database.php";
 require "../Models/user.php";
 
-if (!empty($_POST['username']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) && !empty($_POST['password'])) {
+
+
+if (!empty($_POST['phone']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) && !empty($_POST['password'])) {
     try{
-        $user = createUser($_POST['username'], $_POST['firstname'], $_POST['lastname'], $_POST['email'], $_POST['password'], gen_uuid());
-        if($user){
+        $users = createusers($_POST['phone'], $_POST['firstname'], $_POST['lastname'], $_POST['email'], $_POST['password'], gen_uuid());
+        if($users){
             header('Location: ../index.php');
         } 
         else header('Location: ./Views/create.php?error');
@@ -16,10 +19,10 @@ if (!empty($_POST['username']) && !empty($_POST['firstname']) && !empty($_POST['
     echo "manque des champs";
 }
 
-function createUser(string $username, string $firstName, string $lastName, string $email, string $password){
+function createusers(string $phone, string $firstName, string $lastName, string $email, string $password){
     global $db;
     //on retire tout les caractères spéciaux qui pourraient mener à une injection sql
-    $username = htmlspecialchars(strip_tags($username));
+    $phone = htmlspecialchars(strip_tags($phone));
     $firstName = htmlspecialchars(strip_tags($firstName));
     $lastName = htmlspecialchars(strip_tags($lastName));
     $email = htmlspecialchars(strip_tags($email));
@@ -29,15 +32,15 @@ function createUser(string $username, string $firstName, string $lastName, strin
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
 
-    $user = (new User($db))
-    ->setUsername($username)
+    $users = (new users($db))
+    ->setphone($phone)
     ->setFirstName($firstName)
     ->setLastName($lastName)
     ->setemail($email)
     ->setpassword($password);
-    $user->save();
+    $users->save();
 
-    return $user;
+    return $users;
 
 }
  
@@ -63,3 +66,6 @@ function gen_uuid() {
         mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff )
     );
 }
+
+?>
+

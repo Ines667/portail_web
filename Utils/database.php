@@ -1,14 +1,14 @@
 <?php
 
-$host = "127.0.0.1";
-$dataname = "cesi2";
-$user = "root";
-$password = "";
+// $host = "127.0.0.1";
+// $dataname = "cesi2";
+// $user = "root";
+// $password = "";
 
-// $host = "80.11.12.120";
-// $dataname = "facil";
-// $user = "facil";
-// $password = "M#0rJX{8A9SY";
+$host = "80.11.12.120";
+$dataname = "facil";
+$user = "facil";
+$password = "M#0rJX{8A9SY";
 
 
 try {

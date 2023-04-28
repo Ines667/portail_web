@@ -43,7 +43,7 @@
                     <p>
                                 <?php
 
-                                    $decode = json_decode($_SESSION['USER']);
+                                    $decode = json_decode($_SESSION['users']);
 
                                     echo $decode->email;
 
