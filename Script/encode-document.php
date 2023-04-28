@@ -12,7 +12,7 @@ require "../Controllers/add-document.php";
     if(isset($_FILES['upload_file_cni'])){
         $fichier_cni = $_FILES['upload_file_cni']['tmp_name'];
         $base64_cni = base64_encode(file_get_contents($fichier_cni));
-        create_document($fichier_cni, $base64_cni);
+        create_document($fichier_cni, $base64_cni); 
 
     }
     

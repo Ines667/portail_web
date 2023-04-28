@@ -25,8 +25,9 @@
         <nav>
             <ul>
                 <li><a class="active" href="http://test-facil.fr/index.php">Home</a></li>
-                <li><a href="http://test-facil.fr/contact.php">Contact</a></li>
+                <li><a href="../Views/contact.php">Contact</a></li>
                 <li><a href="../Views/espaceutilisateur.php">Mon compte</a></li>
+                <li><a href="../Views/Admin/main.php">Administration</a></li>
                 <li><a href="../Script/disconnect.php">Log out </a></li>
             </ul>
             </nav>
