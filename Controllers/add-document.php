@@ -11,7 +11,7 @@ function create_document(string $name, string $base64){
     $base64 = htmlspecialchars(strip_tags($base64));
 
 
-    $decode_id = json_decode($_SESSION['USER']);
+    $decode_id = json_decode($_SESSION['users']);
 
     $document = (new Document($db))
     ->setname($name)
