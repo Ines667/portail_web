@@ -32,6 +32,7 @@ class Employer
     public $AnneeEnCour;
     public $code;
     public $iduser;
+    public $temp_password;
 
     public function __construct(PDO $db)
     {
@@ -883,6 +884,26 @@ class Employer
         $this->iduser = $iduser;
 
         return $this;
+    }
+
+    /**
+     * Set the value of temp_password
+     *
+     * @return  self
+     */ 
+    public function setTemp_password($temp_password)
+    {
+        $this->temp_password = $temp_password;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of temp_password
+     */ 
+    public function getTemp_password()
+    {
+        return $this->temp_password;
     }
 }
 

@@ -40,6 +40,10 @@ function newemploye(string $NOM,string $PRENOM,string $ADRESSE,string $VILLE,str
     $PRE_Odm = htmlspecialchars(strip_tags($PRE_Odm));
     $AnneeEnCour = htmlspecialchars(strip_tags($AnneeEnCour));
     $iduser = htmlspecialchars(strip_tags($iduser));
+    // Génération d'un mot de passe temporaire
+    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    $temp_password = substr(str_shuffle($chars), 0, 8); // Génère un mot de passe de 8 caractères aléatoires
+    
 
 
     $employe = (new Employer($db))
@@ -75,6 +79,25 @@ function newemploye(string $NOM,string $PRENOM,string $ADRESSE,string $VILLE,str
     $employe->create_employe();
 
     return $employe;
+
+
+    // Paramètres de configuration SMTP pour Gmail
+    ini_set("SMTP", "smtp.ionos.fr");
+    ini_set("smtp_port", "465");
+    ini_set("sendmail_from", "m.colpin@test-facil.fr");
+
+    // Récupération des données du formulaire
+    $email = $_POST['mail'];
+
+    // Envoi du mail
+    $to = $email;
+    $subject = 'Bienvenue chez notre entreprise';
+    $message = "Votre compte a été créé avec succès. Voici votre mot de passe temporaire : $temp_password";
+    $headers = 'From: noreply@entreprise.com' . "\r\n" .
+            'Reply-To: noreply@entreprise.com' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+
+    mail($to, $subject, $message, $headers);
 }
 
 function gen_uuid() {
@@ -98,6 +121,4 @@ function gen_uuid() {
         mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff )
     );
 }
-
-
 ?>
