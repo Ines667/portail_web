@@ -32,7 +32,6 @@ class Employer
     public $AnneeEnCour;
     public $code;
     public $iduser;
-    public $temp_password;
 
     public function __construct(PDO $db)
     {

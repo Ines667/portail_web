@@ -87,14 +87,12 @@ function newemploye(string $NOM,string $PRENOM,string $ADRESSE,string $VILLE,str
     ini_set("sendmail_from", "m.colpin@test-facil.fr");
 
     // Récupération des données du formulaire
-    $email = $_POST['mail'];
+    $to = $_POST['mail'];
 
-    // Envoi du mail
-    $to = $email;
     $subject = 'Bienvenue chez notre entreprise';
     $message = "Votre compte a été créé avec succès. Voici votre mot de passe temporaire : $temp_password";
-    $headers = 'From: noreply@entreprise.com' . "\r\n" .
-            'Reply-To: noreply@entreprise.com' . "\r\n" .
+    $headers = 'From: m.colpin@test-facil.fr' . "\r\n" .
+            'Reply-To: m.colpin@test-facil.fr' . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
     mail($to, $subject, $message, $headers);
